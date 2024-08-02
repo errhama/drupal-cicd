@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: drupal-cicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: hamza701/drupal-mysql-ci-cd:mysql-v1
+        imagePullPolicy: Always
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: rootpassword
+        ports:
+        - containerPort: 3306
+      # imagePullSecrets:
+      # - name: myregistrykey     
