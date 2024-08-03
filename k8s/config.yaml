@@ -5,25 +5,26 @@ metadata:
 spec:
   capacity:
     storage: 5Gi
-  volumeMode:  Filesystem
   accessModes:
     - ReadWriteOnce
-  persistentVolumeReclaimPolicy:  Recycle  
   hostPath:
     path: /drupal-mysql-data
+  storageClassName: manual  # Match this with PVC if using storage class
+
 ---
 
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: drupal-mysql-pvc
+  namespace: drupal-cicd
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode:  Filesystem
   resources:
     requests:
       storage: 3Gi
+  storageClassName: manual  # Ensure this matches with PV
 
 ---
 
@@ -89,3 +90,6 @@ spec:
         name: drupal
         resources: {}
 status: {}
+---
+sudo kubectl expose deployment drupal --name=drupal-service --type=NodePort --port=80
+sudo kubectl expose deployment drupal-mysql --name=drupal-mysql-service --type=ClusterIp 
