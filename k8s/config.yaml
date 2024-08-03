@@ -25,7 +25,7 @@ spec:
     requests:
       storage: 3Gi
 
-----
+---
 
 apiVersion: apps/v1
 kind: Deployment
@@ -61,7 +61,7 @@ spec:
             name:  drupal-mysql-pvc
       volumes:
         - name: drupal-mysql-pvc
-        persistentVolumeClaim:
+          persistentVolumeClaim:
           claimName: drupal-mysql-pvc
 
 
