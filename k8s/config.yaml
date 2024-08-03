@@ -62,7 +62,7 @@ spec:
       volumes:
         - name: drupal-mysql-pvc
           persistentVolumeClaim:
-          claimName: drupal-mysql-pvc
+            claimName: drupal-mysql-pvc
 
 
 ---
