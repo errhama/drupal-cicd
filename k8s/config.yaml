@@ -2,7 +2,6 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: drupal-mysql-pv
-  namespace: drupal-cicd
 spec:
   capacity:
     storage: 5Gi
@@ -11,7 +10,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /drupal-mysql-data
-  persistentVolumeReclaimPolicy: Recycle  
+  persistentVolumeReclaimPolicy: Retain  # Updated reclaim policy
 
 ---
 
@@ -51,22 +50,21 @@ spec:
       - image: hamza701/drupal-mysql-ci-cd:mysql-v1
         name: mysql
         env:
-        - name:  MYSQL_ROOT_PASSWORD
+        - name: MYSQL_ROOT_PASSWORD
           value: "r00tpassword"
-        - name:  MYSQL_DATABASE  
-          value:  "database"
-        - name:  MYSQL_USER
-          value:  "dbuser" 
+        - name: MYSQL_DATABASE
+          value: "database"
+        - name: MYSQL_USER
+          value: "dbuser"
         - name: MYSQL_PASSWORD
-          value:  "fwfiweio"
+          value: "fwfiweio"
         volumeMounts:
-          - mountPath:  /var/lib/mysql
-            name:  drupal-mysql-pvc
+          - mountPath: /var/lib/mysql
+            name: drupal-mysql-storage
       volumes:
-        - name: drupal-mysql-pvc
+        - name: drupal-mysql-storage
           persistentVolumeClaim:
             claimName: drupal-mysql-pvc
-
 
 ---
 
@@ -88,10 +86,14 @@ spec:
         app: drupal
     spec:
       containers:
-      - image:  hamza701/drupal-mysql-ci-cd:drupal-v1
+      - image: hamza701/drupal-mysql-ci-cd:drupal-v1
         name: drupal
+        ports:
+        - containerPort: 80
         resources: {}
-status: {}
+
 ---
-sudo kubectl expose deployment drupal --name=drupal-service --type=NodePort --port=80
-sudo kubectl expose deployment drupal-mysql --name=drupal-mysql-service --type=ClusterIp 
+
+# Separate commands for exposing services
+#kubectl expose deployment drupal --name=drupal-service --type=NodePort --port=80 --namespace=drupal-cicd
+#kubectl expose deployment drupal-mysql --name=drupal-mysql-service --type=ClusterIP --port=3306 --namespace=drupal-cicd
