@@ -11,7 +11,7 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: /drupal-mysql-data
- # persistentVolumeReclaimPolicy: Recycle  
+  persistentVolumeReclaimPolicy: Recycle  
 
 ---
 
