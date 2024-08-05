@@ -99,3 +99,4 @@ spec:
 # Separate commands for exposing services
 #kubectl expose deployment drupal --name=drupal-service --type=NodePort --port=80 --namespace=drupal-cicd
 #kubectl expose deployment drupal-mysql --name=drupal-mysql-service --type=ClusterIP --port=3306 --namespace=drupal-cicd
+# to access to drupal installation http://192.168.56.102:32376/core/install.php
