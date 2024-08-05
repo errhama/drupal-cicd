@@ -1,7 +1,7 @@
 # Use the official MySQL image
-FROM mysql:8.0
+FROM mysql:8.0-ubuntu
 
-RUN apt-get update && apt-get install -y procps
+#RUN apt-get update && apt-get install -y procps
 
 # Set environment variables
 ENV MYSQL_ROOT_PASSWORD=rootpassword
