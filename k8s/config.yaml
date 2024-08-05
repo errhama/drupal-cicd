@@ -47,7 +47,7 @@ spec:
         app: drupal-mysql
     spec:
       containers:
-      - image: hamza701/drupal-mysql-ci-cd:mysql-v1
+      - image: hamza701/drupal-mysql-ci-cd:mysql-v2
         imagePullPolicy: Always
         name: mysql
         env:
@@ -87,7 +87,7 @@ spec:
         app: drupal
     spec:
       containers:
-      - image: hamza701/drupal-mysql-ci-cd:drupal-v1
+      - image: hamza701/drupal-mysql-ci-cd:drupal-v2
         imagePullPolicy: Always
         name: drupal
         ports:
