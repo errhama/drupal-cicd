@@ -1,5 +1,6 @@
 # Use the official MySQL image
-FROM mysql:8.0-ubuntu
+FROM ubuntu/mysql
+
 
 #RUN apt-get update && apt-get install -y procps
 
