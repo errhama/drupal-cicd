@@ -48,6 +48,7 @@ spec:
     spec:
       containers:
       - image: hamza701/drupal-mysql-ci-cd:mysql-v1
+        imagePullPolicy: Always
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
@@ -87,6 +88,7 @@ spec:
     spec:
       containers:
       - image: hamza701/drupal-mysql-ci-cd:drupal-v1
+        imagePullPolicy: Always
         name: drupal
         ports:
         - containerPort: 80
