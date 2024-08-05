@@ -2,7 +2,7 @@
 FROM php:8.2-apache
 
 # Install Drupal dependencies
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo pdo_mysql mysqli
 
 # Set the working directory
 WORKDIR /var/www/html
