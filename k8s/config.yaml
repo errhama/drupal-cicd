@@ -52,9 +52,9 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "r00tpassword"
+          value: "rootpassword"
         - name: MYSQL_DATABASE
-          value: "database"
+          value: "drupaldb"
         - name: MYSQL_USER
           value: "dbuser"
         - name: MYSQL_PASSWORD
