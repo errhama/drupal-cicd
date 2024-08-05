@@ -4,8 +4,8 @@ FROM mysql:8.0
 # Set environment variables
 ENV MYSQL_ROOT_PASSWORD=rootpassword
 ENV MYSQL_DATABASE=drupaldb
-ENV MYSQL_USER=drupaluser
-ENV MYSQL_PASSWORD=drupalpassword
+ENV MYSQL_USER=dbuser
+ENV MYSQL_PASSWORD=fwfiweio
 
 # Copy the initialization SQL file into the container
 COPY  ./docker/mysql/init  /docker-entrypoint-initdb.d/
