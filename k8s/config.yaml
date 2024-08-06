@@ -51,14 +51,12 @@ spec:
         imagePullPolicy: Always
         name: mysql
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          value: "rootpassword"
         - name: MYSQL_DATABASE
           value: "drupaldb"
         - name: MYSQL_USER
-          value: "dbuser"
+          value: "root"
         - name: MYSQL_PASSWORD
-          value: "fwfiweio"
+          value: ""
         volumeMounts:
           - mountPath: /var/lib/mysql
             name: drupal-mysql-storage
