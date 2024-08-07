@@ -1,5 +1,5 @@
 # Use the official MySQL image
-FROM mysql:8.0
+FROM ubuntu/mysql
 
 # Set environment variables
 ENV MYSQL_DATABASE=drupaldb
