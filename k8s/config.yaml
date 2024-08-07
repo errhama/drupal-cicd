@@ -54,7 +54,7 @@ spec:
         - name: MYSQL_DATABASE
           value: "drupaldb"
         - name: MYSQL_USER
-          value: "root"
+          value: "hamza"
         - name: MYSQL_PASSWORD
           value: "newpassword"
         volumeMounts:

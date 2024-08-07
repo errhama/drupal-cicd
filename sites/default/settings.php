@@ -892,7 +892,7 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # }
 $databases['default']['default'] = array (
   'database' => 'drupaldb',
-  'username' => 'root',
+  'username' => 'hamza',
   'password' => 'newpassword',
   'prefix' => '',
   'host' => 'drupal-mysql-service',

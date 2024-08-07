@@ -2,8 +2,9 @@
 FROM ubuntu/mysql
 
 # Set environment variables
+ENV MYSQL_ROOT_PASSWORD=newpassword
 ENV MYSQL_DATABASE=drupaldb
-ENV MYSQL_USER=root
+ENV MYSQL_USER=hamza
 ENV MYSQL_PASSWORD=newpassword
 
 # Copy the initialization SQL file into the container
