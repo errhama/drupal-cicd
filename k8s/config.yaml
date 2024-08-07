@@ -57,8 +57,6 @@ spec:
           value: "root"
         - name: MYSQL_PASSWORD
           value: "newpassword"
-        - name: MYSQL_ROOT_PASSWORD
-          value: "newpassword"
         volumeMounts:
           - mountPath: /var/lib/mysql
             name: drupal-mysql-storage
